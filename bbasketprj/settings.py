@@ -15,6 +15,8 @@ from pathlib import Path
 
 import dotenv
 
+# from dotenv import load_dotenv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -77,8 +79,6 @@ TEMPLATES = [
     },
 ]
 
-# CORS_ORIGIN_WHITELIST = "localhost:3000/"
-
 WSGI_APPLICATION = "bbasketprj.wsgi.application"
 
 # Database
@@ -137,8 +137,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+IMAGE_URL = "/images/"
+IMAGE_ROOT = os.path.join(BASE_DIR, "images")
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
