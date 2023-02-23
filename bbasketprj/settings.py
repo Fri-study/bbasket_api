@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "rest_framework",
+    "users",  # 회원가입, 로그인 앱
 ]
 
 MIDDLEWARE = [
