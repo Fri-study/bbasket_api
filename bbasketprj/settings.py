@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",  # 토큰 인증 사용
     "users",  # 회원가입, 로그인 앱
-    "bookmarkList",  # 유저 메인보드 앱
+    "bookmarkList",  # 유저 메인 보드 앱
 ]
 
 MIDDLEWARE = [
