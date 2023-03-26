@@ -15,6 +15,8 @@ from pathlib import Path
 
 import dotenv
 
+# from dotenv import load_dotenv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,6 +47,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "rest_framework",
+    "rest_framework.authtoken",  # 토큰 인증 사용
+    "users",  # 회원가입, 로그인 앱
+    "bookmarkList",  # 유저 메인 보드 앱
 ]
 
 MIDDLEWARE = [
@@ -76,8 +81,6 @@ TEMPLATES = [
         },
     },
 ]
-
-# CORS_ORIGIN_WHITELIST = "localhost:3000/"
 
 WSGI_APPLICATION = "bbasketprj.wsgi.application"
 
@@ -121,6 +124,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# 'token' 인증 사용
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -137,8 +147,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+IMAGE_URL = "/images/"
+IMAGE_ROOT = os.path.join(BASE_DIR, "images")
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
