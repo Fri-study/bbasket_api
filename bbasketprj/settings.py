@@ -34,7 +34,7 @@ SECRET_KEY = "*****"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1:3000", "127.0.0.1"]
 
 
 # Application definition
@@ -48,8 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "rest_framework",
-    # "rest_framework.authtoken",  # 토큰 인증 사용
-    "rest_framework_simplejwt",
+    "rest_framework_simplejwt",  # JWT 사용
     "users",
     "bookmarkList",
 ]
@@ -124,7 +123,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 
 AUTH_USER_MODEL = "users.CustomAbstractUser"
-# AUTHENTICATION_BACKENDS = ['users.auth_backends.EmailBackend']
+
 AUTHENTICATION_BACKENDS = [
     "users.auth_backends.EmailBackend",
     "django.contrib.auth.backends.ModelBackend",
