@@ -1,6 +1,6 @@
 from django.db import models
 
-from django.contrib.auth.models import User
+from users.models import CustomAbstractUser
 
 # Create your models here.
 class BookmarkCategory(models.Model):
@@ -16,7 +16,7 @@ class BookmarkCategory(models.Model):
 
 class Bookmark(models.Model):
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="bookmarks"
+        CustomAbstractUser, on_delete=models.CASCADE, related_name="bookmarks"
     )  # 작성자, CustomAbstractBaseUser FK 연결
     title = models.CharField(max_length=200, null=False)  # 메모의 제목
     category = models.ForeignKey(

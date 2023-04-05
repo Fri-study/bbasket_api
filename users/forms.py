@@ -1,10 +1,10 @@
 from django import forms
-from .models import CustomAbstractBaseUser
+from .models import CustomAbstractUser
 
 
 class PasswordForm(forms.ModelForm):
     class Meta:
-        model = CustomAbstractBaseUser
+        model = CustomAbstractUser
         widgets = {
             "password": forms.PasswordInput(),
         }
