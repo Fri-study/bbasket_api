@@ -25,7 +25,7 @@ class Bookmark(models.Model):
     contents = models.TextField(blank=True)  # 메모 내용, 빈칸 허용
     link = models.TextField()  # 북마크 링크 필드
     thumbnail = models.ImageField(
-        upload_to="images/"
+        upload_to="images/", default='pexels-pixabay-301920.jpg'
     )  # 썸네일 필드 upload_to 이미치 파일이 저장될 위치! -> TODO: settings 편집
     created_at = models.DateTimeField(auto_now_add=True)  # 북마크 추가 날짜
     updated_at = models.DateTimeField(auto_now=True)  # 북마크 수정 날짜
